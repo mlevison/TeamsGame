@@ -37,16 +37,4 @@ public class CreateBuildServerTest {
 		team.executeSprint();
 		assertEquals(6, team.getCapacity());
 	}
-
-	@Test
-	public void buildServerReportsEffectOneSprintLaterFailCurrentSprint() {
-		TeamAction buildServer = new BuildServer(1);
-		assertFalse(buildServer.isInEffect(1));
-	}
-
-	@Test
-	public void buildServerReportsEffectOneSprintLaterSucceedNextSprint() {
-		TeamAction buildServer = new BuildServer(1);
-		assertTrue(buildServer.isInEffect(2));
-	}
 }

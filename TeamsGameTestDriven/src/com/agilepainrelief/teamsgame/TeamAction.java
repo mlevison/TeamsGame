@@ -11,10 +11,6 @@ public abstract class TeamAction {
 		sprintCreated = inSprintCreated;
 	}
 
-	public boolean isInEffect(int currentSprint) {
-		return sprintCreated + 1 <= currentSprint;
-	}
-
 	public abstract ActionType getActionType();
 
 	public abstract int calculateEffect(int sprint);
