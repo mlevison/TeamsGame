@@ -20,7 +20,7 @@ public class TestTeamsDegradeIfNothingDone {
 		team.executeSprint();
 		team.executeSprint();
 
-		assertEquals(8, team.getCapacity());
+		assertEquals(6, team.getCapacity());
 	}
 
 	@Test
@@ -31,15 +31,13 @@ public class TestTeamsDegradeIfNothingDone {
 		team.executeSprint();
 		team.executeSprint();
 
-		assertEquals(6, team.getCapacity());
+		assertEquals(2, team.getCapacity());
 	}
 
 	@Test
-	public void sixSprintsCapacityReducedToZero() {
+	public void fourSprintsCapacityReducedToZero() {
 		Team team = new Team();
 
-		team.executeSprint();
-		team.executeSprint();
 		team.executeSprint();
 		team.executeSprint();
 		team.executeSprint();
@@ -49,11 +47,9 @@ public class TestTeamsDegradeIfNothingDone {
 	}
 
 	@Test
-	public void sevenSprintsCapacityReducedToZero() {
+	public void fiveSprintsCapacityReducedToZero() {
 		Team team = new Team();
 
-		team.executeSprint();
-		team.executeSprint();
 		team.executeSprint();
 		team.executeSprint();
 		team.executeSprint();
