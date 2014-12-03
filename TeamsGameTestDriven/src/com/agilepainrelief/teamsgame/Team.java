@@ -10,7 +10,7 @@ public class Team {
 
 	public void executeSprint() {
 		sprint++;
-		if (sprint > 1) {
+		if ((sprint > 1) && (capacity > 0)) {
 			capacity -= 2;
 		}
 	}

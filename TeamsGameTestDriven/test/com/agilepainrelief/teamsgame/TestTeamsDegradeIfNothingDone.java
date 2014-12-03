@@ -22,4 +22,44 @@ public class TestTeamsDegradeIfNothingDone {
 
 		assertEquals(8, team.getCapacity());
 	}
+
+	@Test
+	public void threeSprintsCapacityReducedByFour() {
+		Team team = new Team();
+
+		team.executeSprint();
+		team.executeSprint();
+		team.executeSprint();
+
+		assertEquals(6, team.getCapacity());
+	}
+
+	@Test
+	public void sixSprintsCapacityReducedToZero() {
+		Team team = new Team();
+
+		team.executeSprint();
+		team.executeSprint();
+		team.executeSprint();
+		team.executeSprint();
+		team.executeSprint();
+		team.executeSprint();
+
+		assertEquals(0, team.getCapacity());
+	}
+
+	@Test
+	public void sevenSprintsCapacityReducedToZero() {
+		Team team = new Team();
+
+		team.executeSprint();
+		team.executeSprint();
+		team.executeSprint();
+		team.executeSprint();
+		team.executeSprint();
+		team.executeSprint();
+		team.executeSprint();
+
+		assertEquals(0, team.getCapacity());
+	}
 }
