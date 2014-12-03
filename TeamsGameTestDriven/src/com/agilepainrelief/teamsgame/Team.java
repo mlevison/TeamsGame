@@ -4,7 +4,6 @@ public class Team {
 	private int capacity = 10;
 	private int sprint = 0;
 	private BuildServer buildServer;
-	private int buildServerAddedInSprint = -1;
 
 	public int getCapacity() {
 		return capacity;
@@ -13,11 +12,10 @@ public class Team {
 	public void executeSprint() {
 		sprint++;
 		if ((sprint >= 2) && (capacity > 0)) {
-			if ((buildServerAddedInSprint == -1)
-					|| (buildServerAddedInSprint + 1 == sprint)) {
-				capacity -= 4;
-			} else {
+			if ((buildServer != null) && (buildServer.isInEffect(sprint))) {
 				capacity -= 2;
+			} else {
+				capacity -= 4;
 			}
 			if (capacity < 0) {
 				capacity = 0;
@@ -26,6 +24,5 @@ public class Team {
 	}
 	public void addAction(BuildServer inBuildServer) {
 		buildServer = inBuildServer;
-		buildServerAddedInSprint = sprint;
 	}
 }
