@@ -3,7 +3,7 @@ package com.agilepainrelief.teamsgame;
 public class Team {
 	private int capacity = 10;
 	private int sprint = 0;
-	private BuildServer buildServer;
+	private TeamAction buildServer;
 	private TeamMembersOnSameFloor teamMembersOnSameFloor;
 
 	public int getCapacity() {
@@ -30,7 +30,7 @@ public class Team {
 			};
 		}
 	}
-	public void addAction(BuildServer inBuildServer) {
+	public void addAction(TeamAction inBuildServer) {
 		buildServer = inBuildServer;
 	}
 

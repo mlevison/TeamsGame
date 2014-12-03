@@ -8,7 +8,7 @@ public class CreateBuildServerTest {
 	@Test
 	public void noEffectInFirstRound() {
 		Team team = new Team();
-		BuildServer buildServer = new BuildServer(1);
+		TeamAction buildServer = new BuildServer(1);
 
 		team.addAction(buildServer);
 		team.executeSprint();
@@ -19,7 +19,7 @@ public class CreateBuildServerTest {
 	@Test
 	public void roundTwoLimitsCapacityReductionToTwo() {
 		Team team = new Team();
-		BuildServer buildServer = new BuildServer(1);
+		TeamAction buildServer = new BuildServer(1);
 
 		team.addAction(buildServer);
 		team.executeSprint();
@@ -31,7 +31,7 @@ public class CreateBuildServerTest {
 	@Test
 	public void roundThreeLimitsCapacityReducedToSix() {
 		Team team = new Team();
-		BuildServer buildServer = new BuildServer(1);
+		TeamAction buildServer = new BuildServer(1);
 
 		team.addAction(buildServer);
 		team.executeSprint();
@@ -44,7 +44,7 @@ public class CreateBuildServerTest {
 	@Test
 	public void buildServerOnlyHelpsTheRoundAfterItWasApplied() {
 		Team team = new Team();
-		BuildServer buildServer = new BuildServer(2);
+		TeamAction buildServer = new BuildServer(2);
 
 		team.executeSprint();
 		team.addAction(buildServer);
@@ -57,14 +57,14 @@ public class CreateBuildServerTest {
 
 	@Test
 	public void buildServerReportsEffectOneSprintLaterFailCurrentSprint() {
-		BuildServer buildServer = new BuildServer(1);
+		TeamAction buildServer = new BuildServer(1);
 
 		assertFalse(buildServer.isInEffect(1));
 	}
 
 	@Test
 	public void buildServerReportsEffectOneSprintLaterSucceedNextSprint() {
-		BuildServer buildServer = new BuildServer(1);
+		TeamAction buildServer = new BuildServer(1);
 
 		assertTrue(buildServer.isInEffect(2));
 	}
