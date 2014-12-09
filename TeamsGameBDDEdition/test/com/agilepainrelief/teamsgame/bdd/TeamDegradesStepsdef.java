@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 import cucumber.api.java.en.*;
 
 public class TeamDegradesStepsdef {
-	private int capacity;
+	private Teams teams;
 
 	@Given("^My Teams IntialCapacity is (\\d+)$")
-	public void My_Teams_IntialCapacity_is(int inCapacity) throws Throwable {
-		capacity = inCapacity;
+	public void My_Teams_IntialCapacity_is(int capacity) throws Throwable {
+		teams = new Teams(capacity);
 	}
 
 	@When("^I don't improve Engineering Practice or Social Practice$")
@@ -21,6 +21,10 @@ public class TeamDegradesStepsdef {
 	public void After_rounds_the_teams_capacity_to(int inRound,
 			int expectedFinalCapacity) throws Throwable {
 
-		assertEquals(expectedFinalCapacity, capacity);
+		for (int round = 0; round < inRound; round++) {
+			teams.executeAction();
+		}
+
+		assertEquals(expectedFinalCapacity, teams.getCapacity());
 	}
 }
