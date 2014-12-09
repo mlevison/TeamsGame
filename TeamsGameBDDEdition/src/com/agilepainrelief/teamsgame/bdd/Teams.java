@@ -13,6 +13,10 @@ public class Teams {
 		if (round >= 2) {
 			capacity -= 4;
 		}
+
+		if (capacity < 0) {
+			capacity = 0;
+		}
 	}
 
 	public int getCapacity() {
