@@ -11,10 +11,9 @@ public class TeamDegradesStepsdef {
 		teams = new Teams(capacity);
 	}
 
-	@When("^I don't improve Engineering Practice or Social Practice$")
-	public void I_don_t_improve_Engineering_Practice_or_Social_Practice()
-			throws Throwable {
-		// Was Capacity better expressed as a when?
+	@When("^(\\w*)$")
+	public void ActionTaken(String action) throws Throwable {
+		System.out.println(action);
 	}
 
 	@Then("^After (\\d+) rounds the teams capacity to (\\d+)$")
