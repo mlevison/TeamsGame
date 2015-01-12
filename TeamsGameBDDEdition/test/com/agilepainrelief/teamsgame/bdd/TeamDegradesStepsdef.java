@@ -12,7 +12,7 @@ public class TeamDegradesStepsdef {
 		teams = new Teams(capacity);
 	}
 
-	@When("^(\\w*)$")
+	@When("^(\\w*) Improved$")
 	public void ActionTaken(String action) throws Throwable {
 		if (action.contains("Nothing")) {
 			actionType = ActionType.NoImprovement;

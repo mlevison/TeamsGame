@@ -2,7 +2,7 @@ Feature: Teams Degrade more slowly with only social practices
  
  Scenario Outline: slower degradation
  Given My Teams IntialCapacity is 10
- When Social 
+ When Social Improved
  Then After <Round> rounds the teams capacity to <Capacity>
  Examples: Social Practice Only First round
  | Round | Capacity | 
