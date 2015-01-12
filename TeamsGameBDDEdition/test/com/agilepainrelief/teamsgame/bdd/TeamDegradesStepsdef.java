@@ -16,7 +16,7 @@ public class TeamDegradesStepsdef {
 	public void ActionTaken(String action) throws Throwable {
 		if (action.contains("Nothing")) {
 			actionType = ActionType.NoImprovement;
-		} else if (action.contains("Engineering")) {
+		} else if (action.contains("BuildServerAdded")) {
 			actionType = ActionType.EngineeringPractice;
 		} else if (action.contains("Social")) {
 			actionType = ActionType.SocialPractice;
