@@ -18,6 +18,8 @@ public class TeamDegradesStepsdef {
 			actionType = ActionType.NoImprovement;
 		} else if (action.contains("Engineering")) {
 			actionType = ActionType.EngineeringPractice;
+		} else if (action.contains("Social")) {
+			actionType = ActionType.SocialPractice;
 		}
 	}
 

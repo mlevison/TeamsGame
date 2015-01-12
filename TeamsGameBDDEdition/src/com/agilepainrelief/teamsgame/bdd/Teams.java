@@ -4,6 +4,7 @@ public class Teams {
 	private int capacity;
 	private int round = 0;
 	private boolean engineeringPracticeUsed = false;
+	private boolean socialPracticeUsed = false;
 
 	public Teams(int inCapacity) {
 		capacity = inCapacity;
@@ -13,12 +14,19 @@ public class Teams {
 		if (ActionType.EngineeringPractice == actionType) {
 			engineeringPracticeUsed = true;
 		}
+		if (ActionType.SocialPractice == actionType) {
+			socialPracticeUsed = true;
+		}
 		round++;
 		if (round >= 2) {
 			if (!engineeringPracticeUsed) {
 				capacity -= 4;
 			} else {
 				capacity -= 2;
+			}
+
+			if (socialPracticeUsed) {
+				capacity += 2;
 			}
 		}
 
