@@ -19,10 +19,9 @@ public class Teams {
 		}
 		round++;
 		if (round >= 2) {
-			if (!engineeringPracticeUsed) {
-				capacity -= 4;
-			} else {
-				capacity -= 2;
+			capacity -= 4;
+			if (engineeringPracticeUsed) {
+				capacity += 2;
 			}
 
 			if (socialPracticeUsed) {
