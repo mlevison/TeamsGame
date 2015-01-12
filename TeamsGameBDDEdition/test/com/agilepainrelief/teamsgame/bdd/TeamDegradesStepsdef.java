@@ -5,6 +5,7 @@ import cucumber.api.java.en.*;
 
 public class TeamDegradesStepsdef {
 	private Teams teams;
+	private ActionType actionType;
 
 	@Given("^My Teams IntialCapacity is (\\d+)$")
 	public void My_Teams_IntialCapacity_is(int capacity) throws Throwable {
@@ -13,7 +14,11 @@ public class TeamDegradesStepsdef {
 
 	@When("^(\\w*)$")
 	public void ActionTaken(String action) throws Throwable {
-		System.out.println(action);
+		if (action.contains("Nothing")) {
+			actionType = ActionType.NoImprovement;
+		} else if (action.contains("Engineering")) {
+			actionType = ActionType.EngineeringPractice;
+		}
 	}
 
 	@Then("^After (\\d+) rounds the teams capacity to (\\d+)$")
@@ -21,7 +26,7 @@ public class TeamDegradesStepsdef {
 			int expectedFinalCapacity) throws Throwable {
 
 		for (int round = 0; round < inRound; round++) {
-			teams.executeAction();
+			teams.executeAction(actionType);
 		}
 
 		assertEquals(expectedFinalCapacity, teams.getCapacity());

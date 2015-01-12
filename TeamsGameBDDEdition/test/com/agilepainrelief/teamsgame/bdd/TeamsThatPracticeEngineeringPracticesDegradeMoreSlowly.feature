@@ -7,8 +7,8 @@ Feature: Teams Degrade more slowly with only engineering practices
  Examples: Eng practice only first round
  | Round | Capacity | Improvement |
  | 1	 | 10		| Engineering |
- | 2	 | 8		| Nothing	  |
- | 3	 | 6		| Nothing	  |
- | 4	 | 4 		| Nothing	  |
- | 5	 | 2 		| Nothing	  |
+ | 2	 | 8		| Engineering |
+ | 3	 | 6		| Engineering |
+ | 4	 | 4 		| Engineering |
+ | 5	 | 2 		| Engineering |
  | 6	 | 0 		| Nothing	  |
