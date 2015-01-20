@@ -43,7 +43,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 288981000,
+  "duration": 169708000,
   "status": "passed"
 });
 formatter.match({
@@ -56,7 +56,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.ActionTaken(String)"
 });
 formatter.result({
-  "duration": 1479000,
+  "duration": 1665000,
   "status": "passed"
 });
 formatter.match({
@@ -73,7 +73,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 2089000,
+  "duration": 8018000,
   "status": "passed"
 });
 formatter.scenario({
@@ -113,7 +113,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 355000,
+  "duration": 98000,
   "status": "passed"
 });
 formatter.match({
@@ -126,7 +126,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.ActionTaken(String)"
 });
 formatter.result({
-  "duration": 96000,
+  "duration": 48000,
   "status": "passed"
 });
 formatter.match({
@@ -143,7 +143,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 176000,
+  "duration": 113000,
   "status": "passed"
 });
 formatter.scenario({
@@ -183,7 +183,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 307000,
+  "duration": 128000,
   "status": "passed"
 });
 formatter.match({
@@ -196,7 +196,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.ActionTaken(String)"
 });
 formatter.result({
-  "duration": 101000,
+  "duration": 42000,
   "status": "passed"
 });
 formatter.match({
@@ -213,7 +213,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 148000,
+  "duration": 100000,
   "status": "passed"
 });
 formatter.scenario({
@@ -253,7 +253,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 192000,
+  "duration": 188000,
   "status": "passed"
 });
 formatter.match({
@@ -266,7 +266,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.ActionTaken(String)"
 });
 formatter.result({
-  "duration": 115000,
+  "duration": 79000,
   "status": "passed"
 });
 formatter.match({
@@ -283,7 +283,435 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 164000,
+  "duration": 155000,
+  "status": "passed"
+});
+formatter.uri("com/agilepainrelief/teamsgame/bdd/TeamsThatHaveBuildServerAndUnitiTestingDegradeVerySlowly.feature");
+formatter.feature({
+  "id": "teams-degrade-more-slowly-with-only-engineering-practices",
+  "description": "",
+  "name": "Teams Degrade more slowly with only engineering practices",
+  "keyword": "Feature",
+  "line": 1
+});
+formatter.scenario({
+  "id": "teams-degrade-more-slowly-with-only-engineering-practices;slower-degradation;eng-practice-only-first-round;2",
+  "description": "",
+  "name": "slower degradation",
+  "keyword": "Scenario Outline",
+  "line": 9,
+  "type": "scenario"
+});
+formatter.step({
+  "name": "My Teams IntialCapacity is 10",
+  "keyword": "Given ",
+  "line": 4
+});
+formatter.step({
+  "name": "BuildServerAdded Improved",
+  "keyword": "When ",
+  "line": 5
+});
+formatter.step({
+  "name": "After 1 rounds the teams capacity to 10",
+  "keyword": "Then ",
+  "line": 6,
+  "matchedColumns": [
+    0,
+    1
+  ]
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "10",
+      "offset": 27
+    }
+  ],
+  "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
+});
+formatter.result({
+  "duration": 190000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "BuildServerAdded",
+      "offset": 0
+    }
+  ],
+  "location": "TeamDegradesStepsdef.ActionTaken(String)"
+});
+formatter.result({
+  "duration": 80000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "1",
+      "offset": 6
+    },
+    {
+      "val": "10",
+      "offset": 37
+    }
+  ],
+  "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
+});
+formatter.result({
+  "duration": 113000,
+  "status": "passed"
+});
+formatter.scenario({
+  "id": "teams-degrade-more-slowly-with-only-engineering-practices;slower-degradation;eng-practice-only-first-round;3",
+  "description": "",
+  "name": "slower degradation",
+  "keyword": "Scenario Outline",
+  "line": 10,
+  "type": "scenario"
+});
+formatter.step({
+  "name": "My Teams IntialCapacity is 10",
+  "keyword": "Given ",
+  "line": 4
+});
+formatter.step({
+  "name": "BuildServerAdded Improved",
+  "keyword": "When ",
+  "line": 5
+});
+formatter.step({
+  "name": "After 2 rounds the teams capacity to 8",
+  "keyword": "Then ",
+  "line": 6,
+  "matchedColumns": [
+    0,
+    1
+  ]
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "10",
+      "offset": 27
+    }
+  ],
+  "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
+});
+formatter.result({
+  "duration": 146000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "BuildServerAdded",
+      "offset": 0
+    }
+  ],
+  "location": "TeamDegradesStepsdef.ActionTaken(String)"
+});
+formatter.result({
+  "duration": 42000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "2",
+      "offset": 6
+    },
+    {
+      "val": "8",
+      "offset": 37
+    }
+  ],
+  "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
+});
+formatter.result({
+  "duration": 85000,
+  "status": "passed"
+});
+formatter.scenario({
+  "id": "teams-degrade-more-slowly-with-only-engineering-practices;slower-degradation;eng-practice-only-first-round;4",
+  "description": "",
+  "name": "slower degradation",
+  "keyword": "Scenario Outline",
+  "line": 11,
+  "type": "scenario"
+});
+formatter.step({
+  "name": "My Teams IntialCapacity is 10",
+  "keyword": "Given ",
+  "line": 4
+});
+formatter.step({
+  "name": "BuildServerAdded Improved",
+  "keyword": "When ",
+  "line": 5
+});
+formatter.step({
+  "name": "After 3 rounds the teams capacity to 6",
+  "keyword": "Then ",
+  "line": 6,
+  "matchedColumns": [
+    0,
+    1
+  ]
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "10",
+      "offset": 27
+    }
+  ],
+  "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
+});
+formatter.result({
+  "duration": 131000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "BuildServerAdded",
+      "offset": 0
+    }
+  ],
+  "location": "TeamDegradesStepsdef.ActionTaken(String)"
+});
+formatter.result({
+  "duration": 41000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "3",
+      "offset": 6
+    },
+    {
+      "val": "6",
+      "offset": 37
+    }
+  ],
+  "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
+});
+formatter.result({
+  "duration": 84000,
+  "status": "passed"
+});
+formatter.scenario({
+  "id": "teams-degrade-more-slowly-with-only-engineering-practices;slower-degradation;eng-practice-only-first-round;5",
+  "description": "",
+  "name": "slower degradation",
+  "keyword": "Scenario Outline",
+  "line": 12,
+  "type": "scenario"
+});
+formatter.step({
+  "name": "My Teams IntialCapacity is 10",
+  "keyword": "Given ",
+  "line": 4
+});
+formatter.step({
+  "name": "BuildServerAdded Improved",
+  "keyword": "When ",
+  "line": 5
+});
+formatter.step({
+  "name": "After 4 rounds the teams capacity to 4",
+  "keyword": "Then ",
+  "line": 6,
+  "matchedColumns": [
+    0,
+    1
+  ]
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "10",
+      "offset": 27
+    }
+  ],
+  "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
+});
+formatter.result({
+  "duration": 94000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "BuildServerAdded",
+      "offset": 0
+    }
+  ],
+  "location": "TeamDegradesStepsdef.ActionTaken(String)"
+});
+formatter.result({
+  "duration": 41000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "4",
+      "offset": 6
+    },
+    {
+      "val": "4",
+      "offset": 37
+    }
+  ],
+  "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
+});
+formatter.result({
+  "duration": 87000,
+  "status": "passed"
+});
+formatter.scenario({
+  "id": "teams-degrade-more-slowly-with-only-engineering-practices;slower-degradation;eng-practice-only-first-round;6",
+  "description": "",
+  "name": "slower degradation",
+  "keyword": "Scenario Outline",
+  "line": 13,
+  "type": "scenario"
+});
+formatter.step({
+  "name": "My Teams IntialCapacity is 10",
+  "keyword": "Given ",
+  "line": 4
+});
+formatter.step({
+  "name": "BuildServerAdded Improved",
+  "keyword": "When ",
+  "line": 5
+});
+formatter.step({
+  "name": "After 5 rounds the teams capacity to 2",
+  "keyword": "Then ",
+  "line": 6,
+  "matchedColumns": [
+    0,
+    1
+  ]
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "10",
+      "offset": 27
+    }
+  ],
+  "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
+});
+formatter.result({
+  "duration": 121000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "BuildServerAdded",
+      "offset": 0
+    }
+  ],
+  "location": "TeamDegradesStepsdef.ActionTaken(String)"
+});
+formatter.result({
+  "duration": 48000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "5",
+      "offset": 6
+    },
+    {
+      "val": "2",
+      "offset": 37
+    }
+  ],
+  "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
+});
+formatter.result({
+  "duration": 89000,
+  "status": "passed"
+});
+formatter.scenario({
+  "id": "teams-degrade-more-slowly-with-only-engineering-practices;slower-degradation;eng-practice-only-first-round;7",
+  "description": "",
+  "name": "slower degradation",
+  "keyword": "Scenario Outline",
+  "line": 14,
+  "type": "scenario"
+});
+formatter.step({
+  "name": "My Teams IntialCapacity is 10",
+  "keyword": "Given ",
+  "line": 4
+});
+formatter.step({
+  "name": "BuildServerAdded Improved",
+  "keyword": "When ",
+  "line": 5
+});
+formatter.step({
+  "name": "After 6 rounds the teams capacity to 0",
+  "keyword": "Then ",
+  "line": 6,
+  "matchedColumns": [
+    0,
+    1
+  ]
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "10",
+      "offset": 27
+    }
+  ],
+  "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
+});
+formatter.result({
+  "duration": 100000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "BuildServerAdded",
+      "offset": 0
+    }
+  ],
+  "location": "TeamDegradesStepsdef.ActionTaken(String)"
+});
+formatter.result({
+  "duration": 40000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "6",
+      "offset": 6
+    },
+    {
+      "val": "0",
+      "offset": 37
+    }
+  ],
+  "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
+});
+formatter.result({
+  "duration": 79000,
   "status": "passed"
 });
 formatter.uri("com/agilepainrelief/teamsgame/bdd/TeamsThatHaveOnlySocialPracticesDegradeMoreSlowly.feature");
@@ -331,7 +759,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 258000,
+  "duration": 121000,
   "status": "passed"
 });
 formatter.match({
@@ -344,7 +772,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.ActionTaken(String)"
 });
 formatter.result({
-  "duration": 137000,
+  "duration": 55000,
   "status": "passed"
 });
 formatter.match({
@@ -361,7 +789,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 268000,
+  "duration": 101000,
   "status": "passed"
 });
 formatter.scenario({
@@ -401,7 +829,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 225000,
+  "duration": 134000,
   "status": "passed"
 });
 formatter.match({
@@ -414,7 +842,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.ActionTaken(String)"
 });
 formatter.result({
-  "duration": 100000,
+  "duration": 47000,
   "status": "passed"
 });
 formatter.match({
@@ -431,7 +859,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 151000,
+  "duration": 88000,
   "status": "passed"
 });
 formatter.scenario({
@@ -471,7 +899,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 180000,
+  "duration": 119000,
   "status": "passed"
 });
 formatter.match({
@@ -484,7 +912,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.ActionTaken(String)"
 });
 formatter.result({
-  "duration": 152000,
+  "duration": 39000,
   "status": "passed"
 });
 formatter.match({
@@ -501,7 +929,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 171000,
+  "duration": 141000,
   "status": "passed"
 });
 formatter.scenario({
@@ -541,7 +969,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 194000,
+  "duration": 108000,
   "status": "passed"
 });
 formatter.match({
@@ -554,7 +982,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.ActionTaken(String)"
 });
 formatter.result({
-  "duration": 81000,
+  "duration": 60000,
   "status": "passed"
 });
 formatter.match({
@@ -571,7 +999,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 227000,
+  "duration": 128000,
   "status": "passed"
 });
 formatter.scenario({
@@ -611,7 +1039,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 186000,
+  "duration": 133000,
   "status": "passed"
 });
 formatter.match({
@@ -624,7 +1052,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.ActionTaken(String)"
 });
 formatter.result({
-  "duration": 79000,
+  "duration": 43000,
   "status": "passed"
 });
 formatter.match({
@@ -641,7 +1069,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 211000,
+  "duration": 81000,
   "status": "passed"
 });
 formatter.scenario({
@@ -681,7 +1109,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 369000,
+  "duration": 1219000,
   "status": "passed"
 });
 formatter.match({
@@ -694,7 +1122,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.ActionTaken(String)"
 });
 formatter.result({
-  "duration": 93000,
+  "duration": 857000,
   "status": "passed"
 });
 formatter.match({
@@ -711,7 +1139,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 128000,
+  "duration": 836000,
   "status": "passed"
 });
 formatter.uri("com/agilepainrelief/teamsgame/bdd/TeamsThatPracticeOnlyEngineeringPracticesDegradeMoreSlowly.feature");
@@ -736,7 +1164,7 @@ formatter.step({
   "line": 4
 });
 formatter.step({
-  "name": "BuildServerAdded Improved",
+  "name": "BuildServerAdded and UnitTesting Improved",
   "keyword": "When ",
   "line": 5
 });
@@ -759,21 +1187,12 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 299000,
+  "duration": 194000,
   "status": "passed"
 });
-formatter.match({
-  "arguments": [
-    {
-      "val": "BuildServerAdded",
-      "offset": 0
-    }
-  ],
-  "location": "TeamDegradesStepsdef.ActionTaken(String)"
-});
+formatter.match({});
 formatter.result({
-  "duration": 86000,
-  "status": "passed"
+  "status": "undefined"
 });
 formatter.match({
   "arguments": [
@@ -789,8 +1208,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 135000,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.scenario({
   "id": "teams-degrade-more-slowly-with-only-engineering-practices;slower-degradation;eng-practice-only-first-round;3",
@@ -806,7 +1224,7 @@ formatter.step({
   "line": 4
 });
 formatter.step({
-  "name": "BuildServerAdded Improved",
+  "name": "BuildServerAdded and UnitTesting Improved",
   "keyword": "When ",
   "line": 5
 });
@@ -829,21 +1247,12 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 283000,
+  "duration": 130000,
   "status": "passed"
 });
-formatter.match({
-  "arguments": [
-    {
-      "val": "BuildServerAdded",
-      "offset": 0
-    }
-  ],
-  "location": "TeamDegradesStepsdef.ActionTaken(String)"
-});
+formatter.match({});
 formatter.result({
-  "duration": 67000,
-  "status": "passed"
+  "status": "undefined"
 });
 formatter.match({
   "arguments": [
@@ -859,8 +1268,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 142000,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.scenario({
   "id": "teams-degrade-more-slowly-with-only-engineering-practices;slower-degradation;eng-practice-only-first-round;4",
@@ -876,7 +1284,7 @@ formatter.step({
   "line": 4
 });
 formatter.step({
-  "name": "BuildServerAdded Improved",
+  "name": "BuildServerAdded and UnitTesting Improved",
   "keyword": "When ",
   "line": 5
 });
@@ -899,21 +1307,12 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 409000,
+  "duration": 195000,
   "status": "passed"
 });
-formatter.match({
-  "arguments": [
-    {
-      "val": "BuildServerAdded",
-      "offset": 0
-    }
-  ],
-  "location": "TeamDegradesStepsdef.ActionTaken(String)"
-});
+formatter.match({});
 formatter.result({
-  "duration": 100000,
-  "status": "passed"
+  "status": "undefined"
 });
 formatter.match({
   "arguments": [
@@ -929,8 +1328,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 303000,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.scenario({
   "id": "teams-degrade-more-slowly-with-only-engineering-practices;slower-degradation;eng-practice-only-first-round;5",
@@ -946,7 +1344,7 @@ formatter.step({
   "line": 4
 });
 formatter.step({
-  "name": "BuildServerAdded Improved",
+  "name": "BuildServerAdded and UnitTesting Improved",
   "keyword": "When ",
   "line": 5
 });
@@ -969,21 +1367,12 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 226000,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "BuildServerAdded",
-      "offset": 0
-    }
-  ],
-  "location": "TeamDegradesStepsdef.ActionTaken(String)"
-});
-formatter.result({
   "duration": 96000,
   "status": "passed"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
 });
 formatter.match({
   "arguments": [
@@ -999,8 +1388,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 136000,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.scenario({
   "id": "teams-degrade-more-slowly-with-only-engineering-practices;slower-degradation;eng-practice-only-first-round;6",
@@ -1016,7 +1404,7 @@ formatter.step({
   "line": 4
 });
 formatter.step({
-  "name": "BuildServerAdded Improved",
+  "name": "BuildServerAdded and UnitTesting Improved",
   "keyword": "When ",
   "line": 5
 });
@@ -1039,21 +1427,12 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 180000,
+  "duration": 166000,
   "status": "passed"
 });
-formatter.match({
-  "arguments": [
-    {
-      "val": "BuildServerAdded",
-      "offset": 0
-    }
-  ],
-  "location": "TeamDegradesStepsdef.ActionTaken(String)"
-});
+formatter.match({});
 formatter.result({
-  "duration": 108000,
-  "status": "passed"
+  "status": "undefined"
 });
 formatter.match({
   "arguments": [
@@ -1069,8 +1448,7 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 135000,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.scenario({
   "id": "teams-degrade-more-slowly-with-only-engineering-practices;slower-degradation;eng-practice-only-first-round;7",
@@ -1086,7 +1464,7 @@ formatter.step({
   "line": 4
 });
 formatter.step({
-  "name": "BuildServerAdded Improved",
+  "name": "BuildServerAdded and UnitTesting Improved",
   "keyword": "When ",
   "line": 5
 });
@@ -1109,21 +1487,12 @@ formatter.match({
   "location": "TeamDegradesStepsdef.My_Teams_IntialCapacity_is(int)"
 });
 formatter.result({
-  "duration": 2089000,
+  "duration": 160000,
   "status": "passed"
 });
-formatter.match({
-  "arguments": [
-    {
-      "val": "BuildServerAdded",
-      "offset": 0
-    }
-  ],
-  "location": "TeamDegradesStepsdef.ActionTaken(String)"
-});
+formatter.match({});
 formatter.result({
-  "duration": 912000,
-  "status": "passed"
+  "status": "undefined"
 });
 formatter.match({
   "arguments": [
@@ -1139,7 +1508,6 @@ formatter.match({
   "location": "TeamDegradesStepsdef.After_rounds_the_teams_capacity_to(int,int)"
 });
 formatter.result({
-  "duration": 1648000,
-  "status": "passed"
+  "status": "skipped"
 });
 });
