@@ -12,7 +12,10 @@ public class TeamMembersOnSameFloor extends TeamAction {
 
 	@Override
 	public int calculateEffect(int currentSprint) {
-		if (getSprintCreated() + 1 <= currentSprint) {
+		int firstEffectiveSprint = getSprintCreated() + 1;
+		int lastEffectiveSprint = getSprintCreated() + 5;
+		if ((firstEffectiveSprint <= currentSprint)
+				&& (currentSprint <= lastEffectiveSprint)) {
 			return 1;
 		}
 
