@@ -1,0 +1,7 @@
+Feature UnitTesting Without a BuildSe
+
+Scenario: UnitTesting Without No BuildServerAdded Dissallowed
+ Given My Teams IntialCapacity is 10
+ When UnitTesting Improved
+ When No BuildServerAdded
+ Then Disallowed

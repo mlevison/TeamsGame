@@ -1,6 +1,7 @@
 package com.agilepainrelief.teamsgame.bdd;
 
 import static org.junit.Assert.*;
+import cucumber.api.*;
 import cucumber.api.java.en.*;
 
 public class TeamDegradesStepsdef {
@@ -13,13 +14,36 @@ public class TeamDegradesStepsdef {
 	}
 
 	@When("^(\\w*) Improved$")
-	public void ActionTaken(String action) throws Throwable {
+	public void actionTaken(String action) throws Throwable {
+		actionType = actionParser(action);
+	}
+
+	private ActionType actionParser(String action) {
 		if (action.contains("Nothing")) {
-			actionType = ActionType.NoImprovement;
+			return ActionType.NoImprovement;
 		} else if (action.contains("BuildServerAdded")) {
-			actionType = ActionType.EngineeringPractice;
+			return ActionType.BuildServerAdded;
+		} else if (action.contains("UnitTesting")) {
+			return ActionType.UnitTesting;
 		} else if (action.contains("Social")) {
-			actionType = ActionType.SocialPractice;
+			return ActionType.SocialPractice;
+		}
+
+		return ActionType.NoImprovement;
+	}
+
+	@When("^No (\\w+) Change$")
+	public void actionNotTaken(String action) throws Throwable {
+		throw new PendingException();
+	}
+
+	@Then("Disallowed")
+	public void actionDisallowed() {
+		try {
+			teams.executeAction(actionType);
+			fail("IllegalArgumentExceptio expected");
+		} catch (IllegalArgumentException iae) {
+
 		}
 	}
 
