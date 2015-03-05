@@ -49,6 +49,20 @@ public class Team {
 	}
 
 	public void addAction(TeamAction teamAction) {
+		if (teamAction instanceof UnitTesting) {
+			if (false == actionsContainsBuildServer()) {
+				throw new IllegalStateException();
+			}
+		}
 		teamActionList.add(teamAction);
+	}
+
+	private boolean actionsContainsBuildServer() {
+		for (TeamAction teamAction : teamActionList) {
+			if (teamAction instanceof BuildServer) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
