@@ -3,11 +3,15 @@ package com.agilepainrelief.teamsgame;
 import static org.junit.Assert.*;
 
 import org.junit.*;
+import org.junit.rules.*;
 
 // Getting all team members on the same floor reduces the rate at which capacity degrades.
 // 	However capacity still degrades
 // 	After 5 rounds the effect has run its course
 public class GetAllTeamMembersOnSameFloor {
+	@Rule
+	public ExpectedException exception = ExpectedException.none();
+
 	@Test
 	public void firstRoundNoEffect() {
 		Team team = new Team();
@@ -131,4 +135,12 @@ public class GetAllTeamMembersOnSameFloor {
 		assertEquals(1, team.getCapacity());
 	}
 
+	@Test
+	public void cantBeAppliedTwice() {
+		Team team = new Team();
+		team.addAction(new TeamMembersOnSameFloor(1));
+
+		exception.expect(IllegalStateException.class);
+		team.addAction(new TeamMembersOnSameFloor(2));
+	}
 }

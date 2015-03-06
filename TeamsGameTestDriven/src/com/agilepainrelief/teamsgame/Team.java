@@ -54,7 +54,22 @@ public class Team {
 				throw new IllegalStateException();
 			}
 		}
+
+		if (teamAction instanceof TeamMembersOnSameFloor) {
+			if (true == actionsContainsTeamMembersOnSameFloor()) {
+				throw new IllegalStateException();
+			}
+		}
 		teamActionList.add(teamAction);
+	}
+
+	private boolean actionsContainsTeamMembersOnSameFloor() {
+		for (TeamAction teamAction : teamActionList) {
+			if (teamAction instanceof TeamMembersOnSameFloor) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private boolean actionsContainsBuildServer() {
