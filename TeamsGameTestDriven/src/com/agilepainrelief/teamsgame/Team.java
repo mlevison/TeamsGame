@@ -8,10 +8,6 @@ public class Team {
 
 	private final List<TeamAction> teamActionList = new ArrayList<TeamAction>();
 
-	// private BuildServer buildServer;
-	// private TeamMembersOnSameFloor teamMembersOnSameFloor;
-	// private TeamWorkingAgreements teamWorkingAgreements;
-
 	public int getCapacity() {
 		return capacity;
 	}
@@ -19,7 +15,6 @@ public class Team {
 	public void executeSprint() {
 		sprint++;
 		if ((sprint >= 2) && (capacity > 0)) {
-			// assume positive action taken
 			int changeInCapacity = -4;
 			boolean engineeringActionTaken = false;
 			boolean socialActionTaken = false;
