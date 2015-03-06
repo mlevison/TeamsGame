@@ -53,6 +53,10 @@ public class Team {
 			if (false == actionsContainsBuildServer()) {
 				throw new IllegalStateException();
 			}
+
+			if (true == actionsContainsUnitTest()) {
+				throw new IllegalStateException();
+			}
 		}
 
 		if (teamAction instanceof TeamMembersOnSameFloor) {
@@ -60,7 +64,18 @@ public class Team {
 				throw new IllegalStateException();
 			}
 		}
+
 		teamActionList.add(teamAction);
+	}
+
+	private boolean actionsContainsUnitTest() {
+		for (TeamAction teamAction : teamActionList) {
+			if (teamAction instanceof UnitTesting) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	private boolean actionsContainsTeamMembersOnSameFloor() {

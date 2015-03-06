@@ -26,6 +26,17 @@ public class UnitTestingStarted {
 	}
 
 	@Test
+	public void cannotUnitTestTwiceInTheSameGame() {
+		Team team = new Team();
+		team.addAction(new BuildServer(1));
+
+		team.addAction(new UnitTesting(2));
+
+		exception.expect(IllegalStateException.class);
+		team.addAction(new UnitTesting(3));
+	}
+
+	@Test
 	public void unitTestCanOnlyBeAppliedInRoundTwo() {
 		exception.expect(IllegalStateException.class);
 		new UnitTesting(1);
