@@ -44,6 +44,9 @@ public class Team {
 	}
 
 	public void addAction(TeamAction teamAction) {
+		if (false == teamAction.validate(teamActionList)) {
+			throw new IllegalStateException();
+		}
 		if (teamAction instanceof UnitTesting) {
 			if (false == actionsContainsBuildServer()) {
 				throw new IllegalStateException();

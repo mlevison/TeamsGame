@@ -58,7 +58,7 @@ public class GetAllTeamMembersOnSameFloor {
 	}
 
 	@Test
-	public void improvesCapacityForFiveRoundsButNotRoundSeven() {
+	public void capacityDegradesByTwoInTheSeventhSprint() {
 		Team team = new Team();
 		team.addAction(new TeamMembersOnSameFloor(1));
 		team.executeSprint();
@@ -68,9 +68,10 @@ public class GetAllTeamMembersOnSameFloor {
 		team.executeSprint();
 		team.executeSprint();
 
-		// the crucial 7th round - productivity degrades more rapidly again
+		int capacityAfterFiveSprints = team.getCapacity();
+
 		team.executeSprint();
-		assertEquals(3, team.getCapacity());
+		assertEquals(capacityAfterFiveSprints - 2, team.getCapacity());
 	}
 
 	@Test
@@ -87,7 +88,6 @@ public class GetAllTeamMembersOnSameFloor {
 		Team team = new Team();
 		team.addAction(new TeamMembersOnSameFloor(2));
 
-		// First two rounds no effect -
 		team.executeSprint();
 		team.executeSprint();
 

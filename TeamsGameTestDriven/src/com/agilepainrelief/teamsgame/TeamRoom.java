@@ -15,6 +15,9 @@ public class TeamRoom extends TeamAction {
 		int firstEffectiveSprint = getSprintCreated() + 1;
 
 		if (firstEffectiveSprint >= sprint) {
+			if (firstEffectiveSprint >= sprint + 1) {
+				return 2;
+			}
 			return 1;
 		}
 

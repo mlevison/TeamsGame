@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-public class CreateStories {
+public class StoriesCompleted {
 
 	@Test
 	public void OneStoryCommittedOneStoryCompleted() {
@@ -32,6 +32,24 @@ public class CreateStories {
 		StoryCalculator storyCalculator = new StoryCalculator(fakePercent);
 
 		assertThat(storyCalculator.commit(3), is(2));
+	}
+
+	@Test
+	public void FourStoryCommittedThreeCompleted() {
+		IPercentage fakePercent = new FakePercentage();
+
+		StoryCalculator storyCalculator = new StoryCalculator(fakePercent);
+
+		assertThat(storyCalculator.commit(4), is(3));
+	}
+
+	@Test
+	public void FiveStoryCommittedThreeCompleted() {
+		IPercentage fakePercent = new FakePercentage();
+
+		StoryCalculator storyCalculator = new StoryCalculator(fakePercent);
+
+		assertThat(storyCalculator.commit(5), is(3));
 	}
 
 	public class FakePercentage implements IPercentage {

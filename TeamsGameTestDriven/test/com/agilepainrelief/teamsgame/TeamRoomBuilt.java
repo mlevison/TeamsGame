@@ -17,16 +17,16 @@ public class TeamRoomBuilt {
 		assertThat(team.getCapacity(), is(10));
 	}
 
-	@Test
-	public void builtInRoundOneTakesFirstEffectInRoundTwo() {
-		Team team = new Team();
-
-		final int capacityBefore = team.getCapacity();
-		team.addAction(new TeamRoom(1));
-
-		team.executeSprint();
-		team.executeSprint();
-
-		assertThat(team.getCapacity(), is(capacityBefore - 1));
-	}
+	// @Test
+	// public void builtInRoundOneTakesFirstEffectInRoundTwo() {
+	// Team team = new Team();
+	//
+	// final int capacityBefore = team.getCapacity();
+	// team.addAction(new TeamRoom(1));
+	//
+	// team.executeSprint();
+	// team.executeSprint();
+	//
+	// assertThat(team.getCapacity(), is(capacityBefore - 1));
+	// }
 }
