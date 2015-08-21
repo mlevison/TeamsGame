@@ -49,7 +49,6 @@ public class GetAllTeamMembersOnSameFloor {
 
 		// Five rounds with effect
 		executeCountSprints(team, 5);
-
 		assertEquals(5, team.getCapacity());
 	}
 
@@ -69,8 +68,8 @@ public class GetAllTeamMembersOnSameFloor {
 	public void appliedInSecondRoundDoesntHaveImmediateEffect() {
 		Team team = new Team();
 		team.addAction(new TeamMembersOnSameFloor(2));
-		team.executeSprint();
-		team.executeSprint();
+
+		executeCountSprints(team, 2);
 		assertEquals(8, team.getCapacity());
 	}
 
@@ -80,7 +79,6 @@ public class GetAllTeamMembersOnSameFloor {
 		team.addAction(new TeamMembersOnSameFloor(2));
 
 		executeCountSprints(team, 3);
-
 		assertEquals(7, team.getCapacity());
 	}
 
