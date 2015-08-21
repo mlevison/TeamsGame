@@ -16,6 +16,7 @@ public class GetAllTeamMembersOnSameFloor {
 	public void firstRoundNoEffect() {
 		Team team = new Team();
 		team.addAction(new TeamMembersOnSameFloor(1));
+
 		team.executeSprint();
 		assertEquals(10, team.getCapacity());
 	}
@@ -24,8 +25,8 @@ public class GetAllTeamMembersOnSameFloor {
 	public void secondRoundCapcityReducedByOnlyOne() {
 		Team team = new Team();
 		team.addAction(new TeamMembersOnSameFloor(1));
-		team.executeSprint();
-		team.executeSprint();
+
+		executeCountSprints(team, 2);
 		assertEquals(9, team.getCapacity());
 	}
 
@@ -33,9 +34,8 @@ public class GetAllTeamMembersOnSameFloor {
 	public void thirdRoundCapcityReducedByOnlyTwo() {
 		Team team = new Team();
 		team.addAction(new TeamMembersOnSameFloor(1));
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
+
+		executeCountSprints(team, 3);
 		assertEquals(8, team.getCapacity());
 	}
 
@@ -44,15 +44,11 @@ public class GetAllTeamMembersOnSameFloor {
 		Team team = new Team();
 		team.addAction(new TeamMembersOnSameFloor(1));
 
-		// Round No effect
+		// Round one No effect
 		team.executeSprint();
 
 		// Five rounds with effect
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
+		executeCountSprints(team, 5);
 
 		assertEquals(5, team.getCapacity());
 	}
@@ -61,17 +57,12 @@ public class GetAllTeamMembersOnSameFloor {
 	public void capacityDegradesByTwoInTheSeventhSprint() {
 		Team team = new Team();
 		team.addAction(new TeamMembersOnSameFloor(1));
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
 
-		int capacityAfterFiveSprints = team.getCapacity();
+		executeCountSprints(team, 6);
+		int capacityAfterSixSprints = team.getCapacity();
 
 		team.executeSprint();
-		assertEquals(capacityAfterFiveSprints - 2, team.getCapacity());
+		assertEquals(capacityAfterSixSprints - 2, team.getCapacity());
 	}
 
 	@Test
@@ -88,10 +79,8 @@ public class GetAllTeamMembersOnSameFloor {
 		Team team = new Team();
 		team.addAction(new TeamMembersOnSameFloor(2));
 
-		team.executeSprint();
-		team.executeSprint();
+		executeCountSprints(team, 3);
 
-		team.executeSprint();
 		assertEquals(7, team.getCapacity());
 	}
 
@@ -101,15 +90,9 @@ public class GetAllTeamMembersOnSameFloor {
 		team.addAction(new TeamMembersOnSameFloor(2));
 
 		// First two rounds no effect -
-		team.executeSprint();
-		team.executeSprint();
-
+		executeCountSprints(team, 2);
 		// Five rounds of positive effect
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
+		executeCountSprints(team, 5);
 
 		assertEquals(3, team.getCapacity());
 	}
@@ -120,15 +103,10 @@ public class GetAllTeamMembersOnSameFloor {
 		team.addAction(new TeamMembersOnSameFloor(2));
 
 		// First two rounds no effect -
-		team.executeSprint();
-		team.executeSprint();
+		executeCountSprints(team, 2);
 
 		// Five rounds of positive effect
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
+		executeCountSprints(team, 5);
 
 		// the crucial 8th round - productivity degrades more rapidly again
 		team.executeSprint();
@@ -142,5 +120,12 @@ public class GetAllTeamMembersOnSameFloor {
 
 		exception.expect(IllegalStateException.class);
 		team.addAction(new TeamMembersOnSameFloor(2));
+	}
+
+	private void executeCountSprints(Team team, int number) {
+		while (number > 0) {
+			team.executeSprint();
+			number--;
+		}
 	}
 }
