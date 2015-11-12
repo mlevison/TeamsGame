@@ -3,6 +3,8 @@ package com.agilepainrelief.teamsgame;
 import java.util.*;
 
 public class Team {
+	public static final float defaultStorySuccess = 0.66f;
+
 	private int capacity = 10;
 	private int sprint = 0;
 
@@ -88,6 +90,22 @@ public class Team {
 	private boolean actionsContainsBuildServer() {
 		for (TeamAction teamAction : teamActionList) {
 			if (teamAction instanceof BuildServer) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public float getStorySuccessPercentage() {
+		if (actionsContainScrumMasterProtectsTeamFromDistraction()) {
+			return 0.83f;
+		}
+		return defaultStorySuccess;
+	}
+
+	private boolean actionsContainScrumMasterProtectsTeamFromDistraction() {
+		for (TeamAction teamAction : teamActionList) {
+			if (teamAction instanceof ScrumMasterProtectsFromOutsideDistraction) {
 				return true;
 			}
 		}
