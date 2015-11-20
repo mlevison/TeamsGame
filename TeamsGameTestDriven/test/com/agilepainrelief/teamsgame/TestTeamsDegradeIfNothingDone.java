@@ -4,58 +4,37 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-public class TestTeamsDegradeIfNothingDone {
+public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 	@Test
 	public void firstSprintNoEffect() {
-		Team team = new Team();
 
-		team.executeSprint();
-		assertEquals(10, team.getCapacity());
+		getTeam().executeSprint();
+		assertEquals(10, getTeam().getCapacity());
 	}
 
 	@Test
 	public void twoSprintsCapacityReducedByTwo() {
-		Team team = new Team();
+		executeCountSprints(2);
 
-		team.executeSprint();
-		team.executeSprint();
-
-		assertEquals(6, team.getCapacity());
+		assertEquals(6, getTeam().getCapacity());
 	}
 
 	@Test
 	public void threeSprintsCapacityReducedByFour() {
-		Team team = new Team();
-
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-
-		assertEquals(2, team.getCapacity());
+		executeCountSprints(3);
+		assertEquals(2, getTeam().getCapacity());
 	}
 
 	@Test
 	public void fourSprintsCapacityReducedToZero() {
-		Team team = new Team();
-
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-
-		assertEquals(0, team.getCapacity());
+		executeCountSprints(4);
+		assertEquals(0, getTeam().getCapacity());
 	}
 
 	@Test
 	public void fiveSprintsCapacityReducedToZero() {
-		Team team = new Team();
+		executeCountSprints(5);
 
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-
-		assertEquals(0, team.getCapacity());
+		assertEquals(0, getTeam().getCapacity());
 	}
 }
