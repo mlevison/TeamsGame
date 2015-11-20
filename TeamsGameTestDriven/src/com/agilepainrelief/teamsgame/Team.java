@@ -97,16 +97,18 @@ public class Team {
 	}
 
 	public float getStorySuccessPercentage() {
-		if (actionsContainScrumMasterProtectsTeamFromDistraction()) {
+		if (scrumMasterProtectsTeamFromDistractionCurrentlyInPlace()) {
 			return 0.83f;
 		}
 		return defaultStorySuccess;
 	}
 
-	private boolean actionsContainScrumMasterProtectsTeamFromDistraction() {
+	private boolean scrumMasterProtectsTeamFromDistractionCurrentlyInPlace() {
 		for (TeamAction teamAction : teamActionList) {
 			if (teamAction instanceof ScrumMasterProtectsFromOutsideDistraction) {
-				return true;
+				if (teamAction.getSprintCreated() == sprint) {
+					return true;
+				}
 			}
 		}
 		return false;

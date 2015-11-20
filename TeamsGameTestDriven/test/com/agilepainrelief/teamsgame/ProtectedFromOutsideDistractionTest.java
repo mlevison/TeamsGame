@@ -13,7 +13,7 @@ public class ProtectedFromOutsideDistractionTest {
 	// permanent
 
 	@Test
-	public void scrumMasterProtectsTeamFromDistractionsHasOnCapacityInFirstRound() {
+	public void scrumMasterProtectsTeamFromDistractionsHasNoEffectOnCapacityInFirstRound() {
 		Team team = new Team();
 		team.addAction(new ScrumMasterProtectsFromOutsideDistraction(1));
 
@@ -44,6 +44,20 @@ public class ProtectedFromOutsideDistractionTest {
 		Team team = new Team();
 		team.addAction(new ScrumMasterProtectsFromOutsideDistraction(1));
 
+		team.executeSprint();
+
 		assertThat(0.83f, is(equalTo(team.getStorySuccessPercentage())));
+	}
+
+	@Test
+	public void scrumMasterProtectsForOnlyOneRoundOnlyProtectsTeamFromDistractionsAffectsStorySuccessPercentageForCurrentRound() {
+		Team team = new Team();
+		team.addAction(new ScrumMasterProtectsFromOutsideDistraction(1));
+
+		team.executeSprint();
+		team.executeSprint();
+
+		assertThat(Team.defaultStorySuccess,
+				is(equalTo(team.getStorySuccessPercentage())));
 	}
 }
