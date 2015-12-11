@@ -3,37 +3,33 @@ package com.agilepainrelief.teamsgame;
 import org.junit.*;
 import org.junit.rules.*;
 
-public class UnitTestingStarted {
+public class UnitTestingStarted extends TeamTestBase {
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
 
 	@Test
 	public void cantUnitTestWithoutBuildServer() {
-		Team team = new Team();
 		UnitTesting unitTesting = new UnitTesting(2);
 
 		exception.expect(IllegalStateException.class);
-		team.addAction(unitTesting);
+		getTeam().addAction(unitTesting);
 	}
 
 	@Test
 	public void canUnitTestWithBuildServer() {
-		Team team = new Team();
-		team.addAction(new BuildServer(1));
+		getTeam().addAction(new BuildServer(1));
 		UnitTesting unitTesting = new UnitTesting(2);
 
-		team.addAction(unitTesting);
+		getTeam().addAction(unitTesting);
 	}
 
 	@Test
 	public void cannotUnitTestTwiceInTheSameGame() {
-		Team team = new Team();
-		team.addAction(new BuildServer(1));
-
-		team.addAction(new UnitTesting(2));
+		getTeam().addAction(new BuildServer(1));
+		getTeam().addAction(new UnitTesting(2));
 
 		exception.expect(IllegalStateException.class);
-		team.addAction(new UnitTesting(3));
+		getTeam().addAction(new UnitTesting(3));
 	}
 
 	@Test
@@ -44,29 +40,20 @@ public class UnitTestingStarted {
 
 	@Test
 	public void unitTestingHasNoEffectInRoundTwo() {
-		Team team = new Team();
-		team.addAction(new BuildServer(1));
-		team.addAction(new UnitTesting(2));
+		getTeam().addAction(new BuildServer(1));
+		getTeam().addAction(new UnitTesting(2));
 
 		// two rounds has no effect
-		team.executeSprint();
-		team.executeSprint();
-
-		Assert.assertEquals(8, team.getCapacity());
+		executeCountSprints(2);
+		Assert.assertEquals(8, getTeam().getCapacity());
 	}
 
 	@Test
 	public void unitTestingSlowsTheRateOfDecayInRoundThree() {
-		Team team = new Team();
-		team.addAction(new BuildServer(1));
-		team.addAction(new UnitTesting(2));
+		getTeam().addAction(new BuildServer(1));
+		getTeam().addAction(new UnitTesting(2));
 
-		// two rounds has no effect
-		team.executeSprint();
-		team.executeSprint();
-
-		// round 3 it finally has an effect
-		team.executeSprint();
-		Assert.assertEquals(7, team.getCapacity());
+		executeCountSprints(3);
+		Assert.assertEquals(7, getTeam().getCapacity());
 	}
 }

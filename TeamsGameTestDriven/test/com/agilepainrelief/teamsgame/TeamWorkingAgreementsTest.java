@@ -4,35 +4,29 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-public class TeamWorkingAgreementsTest {
+public class TeamWorkingAgreementsTest extends TeamTestBase {
 	@Test
 	public void teamWorkingAgreementsHaveNoAffectInFirstRound() {
-		Team team = new Team();
-		team.addAction(new TeamWorkingAgreements(1));
+		getTeam().addAction(new TeamWorkingAgreements(1));
 
-		team.executeSprint();
-		assertEquals(10, team.getCapacity());
+		executeCountSprints(1);
+		assertEquals(10, getTeam().getCapacity());
 	}
 
 	@Test
 	public void teamWorkingAgreementsLimitCapacityReductionInFirstSprintAfterUse() {
-		Team team = new Team();
-		team.addAction(new TeamWorkingAgreements(1));
+		getTeam().addAction(new TeamWorkingAgreements(1));
 
-		team.executeSprint();
-		team.executeSprint();
-		assertEquals(9, team.getCapacity());
+		executeCountSprints(2);
+		assertEquals(9, getTeam().getCapacity());
 	}
 
 	@Test
 	public void teamWorkingAgreementsLimitCapacityReductionInOneTimeEffectProvenOverThreeSprints() {
-		Team team = new Team();
-		team.addAction(new TeamWorkingAgreements(1));
+		getTeam().addAction(new TeamWorkingAgreements(1));
 
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		assertEquals(7, team.getCapacity());
+		executeCountSprints(3);
+		assertEquals(7, getTeam().getCapacity());
 	}
 
 	@Test

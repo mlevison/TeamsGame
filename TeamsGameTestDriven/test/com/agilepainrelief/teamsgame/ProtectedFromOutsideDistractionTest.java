@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-public class ProtectedFromOutsideDistractionTest {
+public class ProtectedFromOutsideDistractionTest extends TeamTestBase {
 	// *TODO write these tests
 	// Has no effect on capacity
 	// If Used for two rounds in succession it is permanent
@@ -14,50 +14,42 @@ public class ProtectedFromOutsideDistractionTest {
 
 	@Test
 	public void scrumMasterProtectsTeamFromDistractionsHasNoEffectOnCapacityInFirstRound() {
-		Team team = new Team();
-		team.addAction(new ScrumMasterProtectsFromOutsideDistraction(1));
 
-		team.executeSprint();
-		assertEquals(10, team.getCapacity());
+		getTeam().addAction(new ScrumMasterProtectsFromOutsideDistraction(1));
+
+		executeCountSprints(1);
+		assertEquals(10, getTeam().getCapacity());
 	}
 
 	@Test
 	public void scrumMasterProtectsTeamFromDistractionsHasNoAffectOnCapacityInAnyRound() {
-		Team team = new Team();
-		team.addAction(new ScrumMasterProtectsFromOutsideDistraction(1));
+		getTeam().addAction(new ScrumMasterProtectsFromOutsideDistraction(1));
 
-		team.executeSprint();
-		team.executeSprint();
-		assertEquals(8, team.getCapacity());
+		executeCountSprints(2);
+		assertEquals(8, getTeam().getCapacity());
 	}
 
 	@Test
 	public void scrumMasterDoesnProectFromDistractionsDefaultSuccessPercentage() {
-		Team team = new Team();
-
-		assertThat(Team.defaultStorySuccess,
-				is(equalTo(team.getStorySuccessPercentage())));
+		assertThat(Team.defaultStorySuccess, is(equalTo(getTeam()
+				.getStorySuccessPercentage())));
 	}
 
 	@Test
 	public void scrumMasterProtectsTeamFromDistractionsAffectsStorySuccessPercentageInCurrentRound() {
-		Team team = new Team();
-		team.addAction(new ScrumMasterProtectsFromOutsideDistraction(1));
+		getTeam().addAction(new ScrumMasterProtectsFromOutsideDistraction(1));
 
-		team.executeSprint();
-
-		assertThat(0.83f, is(equalTo(team.getStorySuccessPercentage())));
+		executeCountSprints(1);
+		assertThat(0.83f, is(equalTo(getTeam().getStorySuccessPercentage())));
 	}
 
 	@Test
 	public void scrumMasterProtectsForOnlyOneRoundOnlyProtectsTeamFromDistractionsAffectsStorySuccessPercentageForCurrentRound() {
-		Team team = new Team();
-		team.addAction(new ScrumMasterProtectsFromOutsideDistraction(1));
+		getTeam().addAction(new ScrumMasterProtectsFromOutsideDistraction(1));
 
-		team.executeSprint();
-		team.executeSprint();
+		executeCountSprints(2);
 
-		assertThat(Team.defaultStorySuccess,
-				is(equalTo(team.getStorySuccessPercentage())));
+		assertThat(Team.defaultStorySuccess, is(equalTo(getTeam()
+				.getStorySuccessPercentage())));
 	}
 }

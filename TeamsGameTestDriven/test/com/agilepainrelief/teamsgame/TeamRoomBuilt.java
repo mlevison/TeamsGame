@@ -5,16 +5,15 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-public class TeamRoomBuilt {
+public class TeamRoomBuilt extends TeamTestBase {
 
 	@Test
 	public void builtInRoundOneHasNoEffect() {
-		Team team = new Team();
-		team.addAction(new TeamRoom(1));
+		getTeam().addAction(new TeamRoom(1));
 
-		team.executeSprint();
+		executeCountSprints(1);
 
-		assertThat(team.getCapacity(), is(10));
+		assertThat(getTeam().getCapacity(), is(10));
 	}
 
 	// @Test

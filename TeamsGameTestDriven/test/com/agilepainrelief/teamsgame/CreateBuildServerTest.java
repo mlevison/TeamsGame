@@ -4,37 +4,31 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-public class CreateBuildServerTest {
+public class CreateBuildServerTest extends TeamTestBase {
 	@Test
 	public void noEffectInFirstRound() {
-		Team team = new Team();
 		BuildServer buildServer = new BuildServer(1);
 
-		team.addAction(buildServer);
-		team.executeSprint();
-		assertEquals(10, team.getCapacity());
+		getTeam().addAction(buildServer);
+		executeCountSprints(1);
+		assertEquals(10, getTeam().getCapacity());
 	}
 
 	@Test
 	public void roundTwoLimitsCapacityReductionToTwo() {
-		Team team = new Team();
 		BuildServer buildServer = new BuildServer(1);
 
-		team.addAction(buildServer);
-		team.executeSprint();
-		team.executeSprint();
-		assertEquals(8, team.getCapacity());
+		getTeam().addAction(buildServer);
+		executeCountSprints(2);
+		assertEquals(8, getTeam().getCapacity());
 	}
 
 	@Test
 	public void roundThreeLimitsCapacityReducedToSix() {
-		Team team = new Team();
 		BuildServer buildServer = new BuildServer(1);
 
-		team.addAction(buildServer);
-		team.executeSprint();
-		team.executeSprint();
-		team.executeSprint();
-		assertEquals(6, team.getCapacity());
+		getTeam().addAction(buildServer);
+		executeCountSprints(3);
+		assertEquals(6, getTeam().getCapacity());
 	}
 }
