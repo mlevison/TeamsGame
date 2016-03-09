@@ -69,6 +69,61 @@ public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 		executeCountSprints(1);
 		assertThat(getTeam().getCurrentSprint(), is(5));
 		assertEquals(beforeCapacity - 8, getTeam().getCapacity());
+	}
+
+	// Attempting to illustrate a Engineering Practice Introduced in Round 1,
+	// slows
+	// the rate of degradation to only -2 per sprint
+	@Test
+	public void engineeringPracticeIntroducedRoundOneSlowsRateOfDegradation() {
+		int beforeCapacity = getTeam().getCapacity();
+		// Using a Fake practice so we don't test the effect of the practice
+		// itself
+		getTeam().addAction(new FakeEngineeringPractice(1));
+
+		executeCountSprints(2);
+		assertThat(getTeam().getCurrentSprint(), is(2));
+		assertEquals(beforeCapacity - 2, getTeam().getCapacity());
+
+		executeCountSprints(1);
+		assertThat(getTeam().getCurrentSprint(), is(3));
+		assertEquals(beforeCapacity - 4, getTeam().getCapacity());
+
+		executeCountSprints(1);
+		assertThat(getTeam().getCurrentSprint(), is(4));
+		assertEquals(beforeCapacity - 6, getTeam().getCapacity());
+
+		executeCountSprints(1);
+		assertThat(getTeam().getCurrentSprint(), is(5));
+		assertEquals(beforeCapacity - 8, getTeam().getCapacity());
+	}
+
+	// Attempting to illustrate an Engineering and Social Practice Introduced in
+	// Round 1, halt
+	// degradation
+	@Test
+	public void engineeringAndSocialPracticeIntroducedRoundOneHaltDegradation() {
+		int beforeCapacity = getTeam().getCapacity();
+		// Using a Fake practice so we don't test the effect of the practice
+		// itself
+		getTeam().addAction(new FakeEngineeringPractice(1));
+		getTeam().addAction(new FakeSocialPractice(1));
+
+		executeCountSprints(2);
+		assertThat(getTeam().getCurrentSprint(), is(2));
+		assertEquals(beforeCapacity, getTeam().getCapacity());
+
+		executeCountSprints(1);
+		assertThat(getTeam().getCurrentSprint(), is(3));
+		assertEquals(beforeCapacity, getTeam().getCapacity());
+
+		executeCountSprints(1);
+		assertThat(getTeam().getCurrentSprint(), is(4));
+		assertEquals(beforeCapacity, getTeam().getCapacity());
+
+		executeCountSprints(1);
+		assertThat(getTeam().getCurrentSprint(), is(5));
+		assertEquals(beforeCapacity, getTeam().getCapacity());
 
 	}
 
@@ -86,6 +141,21 @@ public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 		public int calculateEffect(int sprint) {
 			return 0;
 		}
+	}
 
+	public class FakeEngineeringPractice extends TeamAction {
+		public FakeEngineeringPractice(int inSprintCreated) {
+			super(inSprintCreated);
+		}
+
+		@Override
+		public ActionType getActionType() {
+			return ActionType.Engineering;
+		}
+
+		@Override
+		public int calculateEffect(int sprint) {
+			return 0;
+		}
 	}
 }
