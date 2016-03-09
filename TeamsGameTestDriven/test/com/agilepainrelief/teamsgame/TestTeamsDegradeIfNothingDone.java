@@ -138,14 +138,9 @@ public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 		}
 	}
 
-	public class FakeEngineeringAction extends TeamAction {
+	public class FakeEngineeringAction extends EngineeringAction {
 		public FakeEngineeringAction(int inSprintCreated) {
 			super(inSprintCreated);
-		}
-
-		@Override
-		public ActionType getActionType() {
-			return ActionType.Engineering;
 		}
 
 		@Override
