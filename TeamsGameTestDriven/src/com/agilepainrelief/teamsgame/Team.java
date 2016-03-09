@@ -113,4 +113,8 @@ public class Team {
 		}
 		return false;
 	}
+
+	public int getCurrentSprint() {
+		return sprint;
+	}
 }

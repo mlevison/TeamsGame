@@ -1,14 +1,21 @@
 package com.agilepainrelief.teamsgame;
 
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 import org.junit.*;
 
+// attempting to illustrate if neither a social or engineering action is taken the teams capacity degrades at a rate of -4 per round
+// Round | Capacity
+// 1	 | 10
+// 2     | 6
+// 3     | 2
+// 4     | 0
 public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 	@Test
 	public void firstSprintNoEffect() {
-
 		getTeam().executeSprint();
+
 		assertEquals(10, getTeam().getCapacity());
 	}
 
@@ -36,5 +43,49 @@ public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 		executeCountSprints(5);
 
 		assertEquals(0, getTeam().getCapacity());
+	}
+
+	// Attempting to illustrate a Social Practice Introduced in Round 1, slows
+	// the rate of degradation to only -2 per sprint
+	@Test
+	public void socialPracticeIntroducedRoundOneSlowsRateOfDegradation() {
+		int beforeCapacity = getTeam().getCapacity();
+		// Using a Fake practice so we don't test the effect of the practice
+		// itself
+		getTeam().addAction(new FakeSocialPractice(1));
+
+		executeCountSprints(2);
+		assertThat(getTeam().getCurrentSprint(), is(2));
+		assertEquals(beforeCapacity - 2, getTeam().getCapacity());
+
+		executeCountSprints(1);
+		assertThat(getTeam().getCurrentSprint(), is(3));
+		assertEquals(beforeCapacity - 4, getTeam().getCapacity());
+
+		executeCountSprints(1);
+		assertThat(getTeam().getCurrentSprint(), is(4));
+		assertEquals(beforeCapacity - 6, getTeam().getCapacity());
+
+		executeCountSprints(1);
+		assertThat(getTeam().getCurrentSprint(), is(5));
+		assertEquals(beforeCapacity - 8, getTeam().getCapacity());
+
+	}
+
+	public class FakeSocialPractice extends TeamAction {
+		public FakeSocialPractice(int inSprintCreated) {
+			super(inSprintCreated);
+		}
+
+		@Override
+		public ActionType getActionType() {
+			return ActionType.Social;
+		}
+
+		@Override
+		public int calculateEffect(int sprint) {
+			return 0;
+		}
+
 	}
 }
