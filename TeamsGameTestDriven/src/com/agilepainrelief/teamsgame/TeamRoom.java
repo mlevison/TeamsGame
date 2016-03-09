@@ -1,13 +1,8 @@
 package com.agilepainrelief.teamsgame;
 
-public class TeamRoom extends TeamAction {
+public class TeamRoom extends SocialAction {
 	public TeamRoom(int inSprintCreated) {
 		super(inSprintCreated);
-	}
-
-	@Override
-	public ActionType getActionType() {
-		return ActionType.Social;
 	}
 
 	@Override

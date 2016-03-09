@@ -1,14 +1,8 @@
 package com.agilepainrelief.teamsgame;
 
-public class ScrumMasterProtectsFromOutsideDistraction extends TeamAction {
-
+public class ScrumMasterProtectsFromOutsideDistraction extends SocialAction {
 	public ScrumMasterProtectsFromOutsideDistraction(int inSprintCreated) {
 		super(inSprintCreated);
-	}
-
-	@Override
-	public ActionType getActionType() {
-		return ActionType.Social;
 	}
 
 	@Override

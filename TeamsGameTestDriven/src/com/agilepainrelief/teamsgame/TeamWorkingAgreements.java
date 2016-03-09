@@ -1,13 +1,8 @@
 package com.agilepainrelief.teamsgame;
 
-public class TeamWorkingAgreements extends TeamAction {
+public class TeamWorkingAgreements extends SocialAction {
 	public TeamWorkingAgreements(int inSprintCreated) {
 		super(inSprintCreated);
-	}
-
-	@Override
-	public ActionType getActionType() {
-		return ActionType.Social;
 	}
 
 	@Override

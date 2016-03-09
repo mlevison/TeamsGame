@@ -1,13 +1,8 @@
 package com.agilepainrelief.teamsgame;
 
-public class TeamMembersOnSameFloor extends TeamAction {
+public class TeamMembersOnSameFloor extends SocialAction {
 	public TeamMembersOnSameFloor(int inSprintCreated) {
 		super(inSprintCreated);
-	}
-
-	@Override
-	public ActionType getActionType() {
-		return ActionType.Social;
 	}
 
 	@Override

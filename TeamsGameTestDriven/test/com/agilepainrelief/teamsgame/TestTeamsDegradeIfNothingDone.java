@@ -52,7 +52,7 @@ public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 		int beforeCapacity = getTeam().getCapacity();
 		// Using a Fake practice so we don't test the effect of the practice
 		// itself
-		getTeam().addAction(new FakeSocialPractice(1));
+		getTeam().addAction(new FakeSocialAction(1));
 
 		executeCountSprints(2);
 		assertThat(getTeam().getCurrentSprint(), is(2));
@@ -79,7 +79,7 @@ public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 		int beforeCapacity = getTeam().getCapacity();
 		// Using a Fake practice so we don't test the effect of the practice
 		// itself
-		getTeam().addAction(new FakeEngineeringPractice(1));
+		getTeam().addAction(new FakeEngineeringAction(1));
 
 		executeCountSprints(2);
 		assertThat(getTeam().getCurrentSprint(), is(2));
@@ -106,8 +106,8 @@ public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 		int beforeCapacity = getTeam().getCapacity();
 		// Using a Fake practice so we don't test the effect of the practice
 		// itself
-		getTeam().addAction(new FakeEngineeringPractice(1));
-		getTeam().addAction(new FakeSocialPractice(1));
+		getTeam().addAction(new FakeEngineeringAction(1));
+		getTeam().addAction(new FakeSocialAction(1));
 
 		executeCountSprints(2);
 		assertThat(getTeam().getCurrentSprint(), is(2));
@@ -127,14 +127,9 @@ public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 
 	}
 
-	public class FakeSocialPractice extends TeamAction {
-		public FakeSocialPractice(int inSprintCreated) {
+	public class FakeSocialAction extends SocialAction {
+		public FakeSocialAction(int inSprintCreated) {
 			super(inSprintCreated);
-		}
-
-		@Override
-		public ActionType getActionType() {
-			return ActionType.Social;
 		}
 
 		@Override
@@ -143,8 +138,8 @@ public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 		}
 	}
 
-	public class FakeEngineeringPractice extends TeamAction {
-		public FakeEngineeringPractice(int inSprintCreated) {
+	public class FakeEngineeringAction extends TeamAction {
+		public FakeEngineeringAction(int inSprintCreated) {
 			super(inSprintCreated);
 		}
 
