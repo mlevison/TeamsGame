@@ -72,8 +72,7 @@ public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 	}
 
 	// Attempting to illustrate a Engineering Practice Introduced in Round 1,
-	// slows
-	// the rate of degradation to only -2 per sprint
+	// slows the rate of degradation to only -2 per sprint
 	@Test
 	public void engineeringPracticeIntroducedRoundOneSlowsRateOfDegradation() {
 		int beforeCapacity = getTeam().getCapacity();
@@ -99,8 +98,7 @@ public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 	}
 
 	// Attempting to illustrate an Engineering and Social Practice Introduced in
-	// Round 1, halt
-	// degradation
+	// Round 1, halt degradation
 	@Test
 	public void engineeringAndSocialPracticeIntroducedRoundOneHaltDegradation() {
 		int beforeCapacity = getTeam().getCapacity();
@@ -124,28 +122,5 @@ public class TestTeamsDegradeIfNothingDone extends TeamTestBase {
 		executeCountSprints(1);
 		assertThat(getTeam().getCurrentSprint(), is(5));
 		assertEquals(beforeCapacity, getTeam().getCapacity());
-
-	}
-
-	public class FakeSocialAction extends SocialAction {
-		public FakeSocialAction(int inSprintCreated) {
-			super(inSprintCreated);
-		}
-
-		@Override
-		public int calculateEffect(int sprint) {
-			return 0;
-		}
-	}
-
-	public class FakeEngineeringAction extends EngineeringAction {
-		public FakeEngineeringAction(int inSprintCreated) {
-			super(inSprintCreated);
-		}
-
-		@Override
-		public int calculateEffect(int sprint) {
-			return 0;
-		}
 	}
 }

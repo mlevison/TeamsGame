@@ -9,19 +9,13 @@ public class TeamRoom extends SocialAction {
 	public int calculateEffect(int sprint) {
 		int firstEffectiveSprint = getSprintCreated() + 1;
 
-		System.out.println("Currrent Sprint " + sprint + "FirstEffective "
-				+ firstEffectiveSprint);
-
-		if (firstEffectiveSprint >= sprint) {
-			if (firstEffectiveSprint >= sprint + 1) {
-				System.out.println("  result 2");
+		if ((sprint >= firstEffectiveSprint)
+				&& (sprint < firstEffectiveSprint + 5)) {
+			if (sprint >= firstEffectiveSprint + 1) {
 				return 2;
 			}
-			System.out.println("  result 1");
 			return 1;
 		}
-		System.out.println("  result 0");
 		return 0;
 	}
-
 }
